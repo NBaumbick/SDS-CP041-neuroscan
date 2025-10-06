@@ -6,11 +6,11 @@
 ### 📦 1. Dataset Structure & Class Distribution
 
 Q: How many images are in the "yes" (tumor) vs "no" (no tumor) classes?  
-A: yes: 155, no: 98 
+A: yes: 155, no: 98 -> After preprocessing and duplication removal we have yes: 129, no: 76
 
 Q: What is the class imbalance ratio, and how might this affect model training?  
 A: 98/155 ~> 0.63. This imbalance could lead to a "yes" bias. In other words, the model could become slightly better at identifying 
-   images with tumors than it is at identifying images without tumors.
+   images with tumors than it is at identifying images without tumors. After preprocessing we have 76/129 ~>  0.6
 
 
 ### 🖼️ 2. Image Properties & Standardization
@@ -37,15 +37,23 @@ A: The pixel intensity range is from 0-255
 ### 🏗️ 1. CNN Architecture Design
 
 Q: Describe the architecture of your custom CNN model (layers, filters, pooling).  
-A:  
+A: I started with a simple architecture derived from googles ML Practicum. I intend to test and refine
+   the architecture as I go.
 
 Q: Why did you choose this specific architecture for brain tumor classification?  
-A:  
+A: This architecture seems to be the standard for CNN's. I will continue to refine it as I go.
+   TensorFlow was chosen over PyTorch simply because I've built models with PyTorch before but not 
+   so much with TensorFlow so I wanted to switch things up. Seems to have a lot of functionality integrated
+   already so that's nice.
 
 Q: How many trainable parameters does your model have?  
-A:  
-
-
+A:  It only has two conv layers currently so: 
+conv_1 => (3*3*3 + 1) * 32 = 896
+conv_2 => (3*3*32 + 1) * 64 = 18,496
+dense => ((54*54*64)(from flattened layer) + 1) * 128 neurons = 23,888,000
+dropout => (128 + 1) * 1 = 129
+So it should have 23,907,521 trainable parameters (If I math'd correctly)
+Note: Looking at this, I'll definitely need to add more layers.
 ### ⚙️ 2. Loss Function & Optimization
 
 Q: Which loss function did you use and why is it appropriate for this binary classification task?  
