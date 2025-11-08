@@ -1,1 +1,74 @@
+# -----------------------------
+# 🧠 NeuroScan Project - .gitignore
+# -----------------------------
+
+# === OS / System Files ===
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# === Python Cache & Virtual Env ===
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.env/
+.venv/
+venv/
+ENV/
+env/
+.ipynb_checkpoints/
+
+# === Jupyter Notebook Checkpoints ===
+*/.ipynb_checkpoints/*
+*.ipynb_checkpoints
+
+# === Logs & Reports ===
+*.log
+logs/
+wandb/
+mlruns/
+
+# === Model Weights & Artifacts ===
+assets/*.h5
+assets/*.keras
+assets/*.pkl
+assets/*.joblib
+
+# === Numpy Arrays & Temporary Files ===
+assets/*.npy
+*.npz
+*.npy
+
+# === Dataset Files ===
 assets/Dataset/
+data/
+datasets/
+raw_data/
+processed_data/
+
+# === Temporary / Export Files ===
+temp/
+tmp/
+outputs/
+__results__/
+*.bak
+*.swp
+*.tmp
+
+# === IDE / Editor Config ===
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# === Streamlit / Deployment Cache ===
+.streamlit/
+.cache/
+__pycache__/
+
+# === Keep Important Logs ===
+!assets/model_performance_log.txt
+!README.md
+!requirements.txt
+!*.ipynb
